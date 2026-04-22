@@ -1,9 +1,14 @@
-ul{
+.navul{
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    float: right;
     gap: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 .footerul{
@@ -15,7 +20,10 @@ ul{
 }
 
 nav{
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     background-color: green;
 }
 
