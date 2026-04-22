@@ -1,62 +1,81 @@
-.navul{
+/* General Styles */
+body {
+    background-color: #E0894C;
+    color: black;
+    margin: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: green;
+    padding: 10px 20px;
+}
+
+.navul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-a{
+.navul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
-.footerul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    gap: 20px;
-}
-
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background-color: green;
-}
-
-body{
-    background-color: #E0894C;
-    color: black;
-    margin: 0;
+/* Banner */
+.banner {
     width: 100%;
+    margin-bottom: -26px;
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-}
-
-.title{
+/* Title Section */
+.title {
     text-align: center;
     background-color: #F7B130;
     padding: 40px;
 }
 
-.menuButton{
+.title1 {
+    text-align: center;
+    padding: 40px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Menu Button Section */
+.yes {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.menuButton {
     background-color: green;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     width: 50%;
     border-radius: 30px;
 }
 
-button{
+button {
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -65,26 +84,116 @@ button{
     border-radius: 30px;
 }
 
-.yes{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-    margin-top: 50px;
-}
-
-footer{
+/* Footer */
+footer {
     background-color: #A40F06;
     padding: 25px;
-    margin-top:10px;
-
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Change layout to column */
+    justify-content: center;
+    align-items: center;
+    color: white; /* Set text color to white */
 }
 
-.banner{
+.footerul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column; /* Change layout to column */
+    gap: 10px; /* Add spacing between items */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the text */
+}
+
+.footerul li a {
+    text-decoration: none;
+    color: white; /* Ensure links are white */
+    font-weight: bold;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 1024px) {
+    .app, .main, .dessert, .drinks {
+        padding: 50px 200px;
+    }
+
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .yes {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menuButton {
+        width: 30%;
+    }
+
+    footer {
+        padding: 20px 200px;
+    }
+}
+
+/* Checkout Container */
+.checkout-container {
+    max-width: 900px; /* Stretch the form */
+    margin: 0 auto; /* Center the form */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Checkout Form */
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.checkout-form h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #A40F06; /* Accent color */
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.checkout-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.checkout-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     width: 100%;
-    margin-bottom: -26px;
+    box-sizing: border-box;
 }
 
-.menu-image{
-    padding: 20px;
+.checkout-form button {
+    padding: 15px;
+    font-size: 18px;
+    background-color: #A40F06;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-form button:hover {
+    background-color: #8C3225;
 }
