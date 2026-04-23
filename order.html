@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Order</title>
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="order.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="home.html">
+                <img src="Assets/logo.png" alt="Parrilla Mexicana Logo">
+            </a>
+            <ul class="navul">
+                <li><a href="job.html">Jobs</a></li>
+                <li><a href="order.html">Order Now</a></li>
+            </ul>
+        </nav>
+      <main class="menu-page">
+    <aside class="cart-box">
+      <h2>Cart</h2>
+      <p class="cart-count">Items: <span id="cart-count">0</span></p>
+      <p class="cart-subtotal">Subtotal: $<span id="cart-subtotal">0.00</span></p>
+      <p class="cart-tax">NJ Tax: $<span id="cart-tax">0.00</span></p>
+      <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+    
+      <div id="cart-items" class="cart-items">
+        <p class="empty-cart">Your cart is empty.</p>
+      </div>
+
+      <button id="checkout-btn" disabled>Checkout</button>
+    </aside>
+    
+        <section class="menu-content">
+          <div class="menu-section">
+            <h2>Appetizers</h2>
+            <div class="card-grid">
+              <article class="menu-card" data-name="Larve" data-price="9.50">
+                <div class="card-text">
+                  <h3>Larve</h3>
+                  <p>
+                    Lettuce wraps, protein-packed and toasted leaves seasoned with
+                    sea salt and lime. Served alongside our signature house-made dip
+                    for a savory, crunchy bite.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$9.50</span>
+                    <button class="add-btn" aria-label="Add Larve to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic.png" alt="Larve" />
+              </article>
+    
+              <article class="menu-card" data-name="Chips and Guac" data-price="6.50">
+                <div class="card-text">
+                  <h3>Chips and Guac</h3>
+                  <p>
+                    Our crispy golden corn tortilla chips paired with fresh smashed
+                    avocados, red onion, diced tomato, cilantro, lime, and rich
+                    spice.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$6.50</span>
+                    <button class="add-btn" aria-label="Add Chips and Guac to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic1.jpg" alt="Chips and Guac" />
+              </article>
+    
+              <article class="menu-card" data-name="ChipsNKamiqueo" data-price="5.50">
+                <div class="card-text">
+                  <h3>ChipsNKamiqueo</h3>
+                  <p>
+                    Dive into a bowl of warm, velvety melted cheese blended with
+                    spices. Served with a side of fresh tortilla chips for the
+                    ultimate comfort-food dunk.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$5.50</span>
+                    <button class="add-btn" aria-label="Add ChipsNKamiqueo to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic2.png" alt="ChipsNKamiqueo" />
+              </article>
+    
+              <article class="menu-card" data-name="Chips n PicaVerga" data-price="5.00">
+                <div class="card-text">
+                  <h3>Chips n PicaVerga</h3>
+                  <p>
+                    Keep it fresh with our vibrant pico de gallo, loaded with vine-ripened
+                    tomatoes, onions, cilantro, and jalapeños. Lift the perfect dip
+                    and zesty companion to our salty house chips.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$5.00</span>
+                    <button class="add-btn" aria-label="Add Chips n PicaVerga to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic3.png" alt="Chips n PicaVerga" />
+              </article>
+            </div>
+          </div>
+    
+          <div class="menu-section">
+            <h2>Main Dishes</h2>
+            <div class="card-grid">
+              <article class="menu-card" data-name="Tacos Autheticos" data-price="9.50">
+                <div class="card-text">
+                  <h3>Tacos Autheticos</h3>
+                  <p>
+                    Your choice of protein served on warm, double-stacked corn
+                    tortillas, topped with fresh cilantro and diced onions.
+                    Options: carne asada, pollo, al pastor, y carnitas.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$9.50</span>
+                    <button class="add-btn" aria-label="Add Tacos Autheticos to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic4.png" alt="Tacos Autheticos" />
+              </article>
+    
+              <article class="menu-card" data-name="The Big Burrito" data-price="13.50">
+                <div class="card-text">
+                  <h3>The Big Burrito</h3>
+                  <p>
+                    A flour tortilla packed with your seasoned rice, beans, and your
+                    meat choice. Rolled with melted cheese, fresh pico de gallo, and
+                    sour crema. Addictive “just one more bite” vibes guaranteed.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$13.50</span>
+                    <button class="add-btn" aria-label="Add The Big Burrito to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic5.png" alt="The Big Burrito" />
+              </article>
+    
+              <article class="menu-card" data-name="Crispy Tostadas" data-price="9.50">
+                <div class="card-text">
+                  <h3>Crispy Tostadas</h3>
+                  <p>
+                    A golden, crunchy corn tortilla layered with refried or savory
+                    refried beans, your choice of meat, shredded lettuce, tomato,
+                    avocado, queso fresco, and salsa.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$9.50</span>
+                    <button class="add-btn" aria-label="Add Crispy Tostadas to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic6.png" alt="Crispy Tostadas" />
+              </article>
+    
+              <article class="menu-card" data-name="Torta Flamasos" data-price="11.50">
+                <div class="card-text">
+                  <h3>Torta Flamasos</h3>
+                  <p>
+                    The ultimate Mexican sandwich. A toasted bolillo roll layered
+                    with refried beans, mayo, your choice of protein, jalapeños,
+                    onions, tomatoes, and creamy avocado.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$11.50</span>
+                    <button class="add-btn" aria-label="Add Torta Flamasos to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic7.png" alt="Torta Flamasos" />
+              </article>
+    
+              <article class="menu-card" data-name="Enchisgano" data-price="10.50">
+                <div class="card-text">
+                  <h3>Enchisgano</h3>
+                  <p>
+                    Three soft corn tortillas with your choice of filling, smothered
+                    in our signature red or green enchilada sauce. Topped with
+                    melted Mexican cheese and served with rice.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$10.50</span>
+                    <button class="add-btn" aria-label="Add Enchisgano to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic8.png" alt="Enchisgano" />
+              </article>
+    
+              <article class="menu-card" data-name="Platters (Platillos)" data-price="10.50">
+                <div class="card-text">
+                  <h3>Platters (Platillos)</h3>
+                  <p>
+                    Each platter features a generous portion of your favorite
+                    protein or specialty dish. Our platters come loaded with
+                    Mexican rice, refried beans, a side salad, and tortillas.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$10.50</span>
+                    <button class="add-btn" aria-label="Add Platters (Platillos) to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic9.png" alt="Platters (Platillos)" />
+              </article>
+            </div>
+          </div>
+    
+          <div class="menu-section">
+            <h2>Drinks</h2>
+            <div class="card-grid drinks-grid">
+              <article class="menu-card" data-name="Horchata" data-price="4.00">
+                <div class="card-text">
+                  <h3>Horchata</h3>
+                  <p>
+                    A creamy and refreshing rice-based beverage infused with sweet
+                    cinnamon and vanilla.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$4.00</span>
+                    <button class="add-btn" aria-label="Add Horchata to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic10.png" alt="Horchata" />
+              </article>
+    
+              <article class="menu-card" data-name="Jamaica" data-price="3.00">
+                <div class="card-text">
+                  <h3>Jamaica</h3>
+                  <p>
+                    A tart and vibrant iced tea made from dried hibiscus flowers,
+                    offering a deep ruby color and cranberry-like flavor.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$3.00</span>
+                    <button class="add-btn" aria-label="Add Jamaica to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic11.png" alt="Jamaica" />
+              </article>
+            </div>
+          </div>
+    
+          <div class="menu-section">
+            <h2>Dessert</h2>
+            <div class="card-grid drinks-grid">
+              <article class="menu-card" data-name="Artisan Churros" data-price="10.00">
+                <div class="card-text">
+                  <h3>Artisan Churros</h3>
+                  <p>
+                    Made fresh to order, dipped in buttery cinnamon sugar and
+                    served with a drizzle of spiced sugar. Perfect for sharing or
+                    enjoying solo.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$10.00</span>
+                    <button class="add-btn" aria-label="Add Artisan Churros to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic12.png" alt="Artisan Churros" />
+              </article>
+    
+              <article class="menu-card" data-name="Churro Bites" data-price="7.00">
+                <div class="card-text">
+                  <h3>Churro Bites</h3>
+                  <p>
+                    Bite-sized pillows of cinnamon-sugar goodness. Perfect for
+                    sharing or not.
+                  </p>
+                  <div class="card-bottom">
+                    <span class="price">$7.00</span>
+                    <button class="add-btn" aria-label="Add Churro Bites to cart">+</button>
+                  </div>
+                </div>
+                <img src="Assets/pic13.png" alt="Churro Bites" />
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+
+
+
+        <footer>
+            <img src="Assets/logo.png" alt="Footer Image" class="footer-image">
+            <ul class="footerul">
+                <li><a href="job.html">Jobs</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

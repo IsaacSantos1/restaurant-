@@ -1,4 +1,3 @@
-// Import Firebase configuration
 import { db } from './firebase-config.js';
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
@@ -17,14 +16,13 @@ async function handleCheckoutForm(event) {
     const city = document.getElementById('city').value;
     const state = document.getElementById('state').value;
     const zip = document.getElementById('zip').value;
-    const cardName = document.getElementById('card-name').value;
-    const cardNumber = document.getElementById('card-number').value;
-    const expiry = document.getElementById('expiry').value;
-    const cvv = document.getElementById('cvv').value;
+
+    // Retrieve cart data from localStorage
+    const cart = JSON.parse(localStorage.getItem("cart"));
 
     // Validate form data (basic validation)
-    if (!name || !email || !phone || !address || !city || !state || !zip || !cardName || !cardNumber || !expiry || !cvv) {
-        alert("Please fill out all fields.");
+    if (!name || !email || !phone || !address || !city || !state || !zip || !cart || Object.keys(cart).length === 0) {
+        alert("Please fill out all fields and ensure your cart is not empty.");
         return;
     }
 
@@ -38,17 +36,15 @@ async function handleCheckoutForm(event) {
             city,
             state,
             zip,
-            cardName,
-            cardNumber,
-            expiry,
-            cvv,
+            cart, // Include the cart data
             timestamp: new Date() // Add a timestamp
         });
 
         // Success message
         alert("Order placed successfully! Your order ID is: " + docRef.id);
 
-        // Reset the form
+        // Clear cart and reset the form
+        localStorage.removeItem("cart");
         document.querySelector('.checkout-form').reset();
     } catch (error) {
         console.error("Error adding document: ", error);

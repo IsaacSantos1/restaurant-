@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Portal</title>
+  <link rel="stylesheet" href="inventory.css" />
+  <link rel="stylesheet" href="main.css" />
+  <script defer src="inventory.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <img src="Assets/logo.png" alt="Parrilla Mexicana Logo">
+        <ul>
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="order.html">Order Now</a></li>
+        </ul>
+    </nav>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="analytics.html">View Analytics</a>
+        <a href="inventory.html" class="active">View Inventory</a>
+        <a href="management.html">Employee Management Portal</a>
+      </nav>
+    </aside>
+
+    <main class="inventory-page">
+      <h1>Inventory Portal</h1>
+
+      <section class="inventory-actions">
+        <button id="restock-all-btn" class="main-btn">Restock All</button>
+      </section>
+
+      <section class="inventory-box">
+        <h2>Items to Restock:</h2>
+        <ul id="restock-list" class="inventory-list">
+          <li>No items need restocking.</li>
+        </ul>
+      </section>
+
+      <section class="inventory-box">
+        <h2>Items Currently Available</h2>
+        <div id="available-items" class="available-items"></div>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <img src="Assets/logo.png" alt="Footer Image" class="footer-image">
+    <ul class="footerul">
+        <li><a href="job.html">Jobs</a></li>
+        <li><a href="Menu.html">Menu</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</footer>
+</body>
+</html>
