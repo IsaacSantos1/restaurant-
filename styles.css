@@ -197,3 +197,12 @@ footer {
 .checkout-form button:hover {
     background-color: #8C3225;
 }
+
+.orders-container{
+    max-width: 900px; /* Stretch the form */
+    margin: 0 auto; /* Center the form */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
