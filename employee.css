@@ -1,0 +1,216 @@
+:root {
+    --bg: #dd8c4a;
+    --panel: #3f7656;
+    --panel-dark: #315c44;
+    --text-light: #f7f1e8;
+    --text-dark: #1f1f1f;
+    --danger: #9b2626;
+    --gold: #f2b631;
+    --gold-hover: #e2a51b;
+    --light-btn: #f4efe8;
+    --light-btn-hover: #ddd2c0;
+    --sidebar: #8f2d21;
+    --sidebar-hover: #a53628;
+    --sidebar-active: #712116;
+  }
+
+/* General Layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the entire layout horizontally */
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 150px;
+    background: var(--sidebar);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 22px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.sidebar-nav a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 4px 6px;
+    width: 100%;
+    transition: background 0.18s ease;
+}
+
+.sidebar-nav a:hover {
+    background: var(--sidebar-hover);
+    border-radius: 6px;
+}
+
+.sidebar-nav a.active {
+    background: var(--sidebar-active);
+    border-radius: 6px;
+}
+
+/* Main Content */
+.management-main {
+    flex: 1;
+    background-color: #E0894C;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+}
+
+.management-main h1 {
+    color: #3C6A50;
+    margin-bottom: 20px;
+}
+
+.management-card {
+    background-color: #356f4c;
+    color: white;
+    width: 100%;
+    max-width: 750px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.management-card h2 {
+    margin-bottom: 20px;
+}
+
+/* Employee Hours List */
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.employee-hour-item {
+    background-color: #2b5c3f;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: left;
+    border-left: 6px solid white;
+}
+
+.employee-hour-item p {
+    margin: 6px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #A40F06;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.footerul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.footerul li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 150px;
+    background: var(--sidebar);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 22px;
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .sidebar-nav a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 4px 6px;
+    width: 100%;
+    transition: background 0.18s ease;
+  }
+  
+  .sidebar-nav a:hover {
+    background: var(--sidebar-hover);
+    border-radius: 6px;
+  }
+  
+  .sidebar-nav a.active {
+    background: var(--sidebar-active);
+    border-radius: 6px;
+  }
+
+  
+  @media (max-width: 900px) {
+    .available-items {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      padding: 16px 10px;
+    }
+  
+    .sidebar-nav {
+      gap: 10px;
+    }
+  
+    .inventory-page {
+      padding: 20px 14px 40px;
+    }
+  
+
+  }
+
+  .footerul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    gap: 20px;
+}

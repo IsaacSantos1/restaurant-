@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="employee.css">
+    <script defer src="employee.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <img src="Assets/logo.png" alt="Parrilla Mexicana Logo">
+        <ul>
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="order.html">Order Now</a></li>
+        </ul>
+    </nav>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="inventory.html">View Inventory</a>
+                <a href="management.html">Employee Management Portal</a>
+                <a href="employee.html" class="active">Clock In/Out</a>
+            </nav>
+        </aside>
+
+        <main class="management-main">
+            <h1>Employee Portal</h1>
+            <section class="management-card">
+                <h2>Clock In/Out</h2>
+                <form id="employeeClockForm">
+                    <label for="employeeName">Employee Name</label>
+                    <input id="employeeName" type="text" placeholder="Enter your name" required>
+
+                    <label for="employeePosition">Position</label>
+                    <select id="employeePosition" required>
+                        <option value="">Choose position</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Cook">Cook</option>
+                        <option value="Server">Server</option>
+                        <option value="Dishwasher">Dishwasher</option>
+                    </select>
+
+                    <div class="button-row">
+                        <button id="clockInBtn" type="button">Clock In</button>
+                        <button id="clockOutBtn" type="button">Clock Out</button>
+                    </div>
+                </form>
+                <p id="employeeStatus">Status: Not clocked in</p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <img src="Assets/logo.png" alt="Footer Image" class="footer-image">
+        <ul class="footerul">
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
