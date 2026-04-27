@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Portal</title>
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="employee.css">
-    <script defer src="employee.js"></script>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="nav">
-        <img src="Assets/logo.png" alt="Parrilla Mexicana Logo">
-        <ul>
-            <li><a href="job.html">Jobs</a></li>
+        <a href="home.html">
+            <img src="Assets/logo.png" alt="Parrilla Mexicana Logo" style="height: 50px;">
+        </a>
+        <ul class="navul">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
             <li><a href="order.html">Order Now</a></li>
+            <li><a href="employeelogin.html">Jobs</a></li>
         </ul>
     </nav>
-
+    <!-- Layout -->
     <div class="layout">
+        <!-- Sidebar -->
         <aside class="sidebar">
             <nav class="sidebar-nav">
                 <a href="inventory.html">View Inventory</a>
@@ -25,7 +31,7 @@
                 <a href="employee.html" class="active">Clock In/Out</a>
             </nav>
         </aside>
-
+        <!-- Main Content -->
         <main class="management-main">
             <h1>Employee Portal</h1>
             <section class="management-card">
@@ -33,7 +39,6 @@
                 <form id="employeeClockForm">
                     <label for="employeeName">Employee Name</label>
                     <input id="employeeName" type="text" placeholder="Enter your name" required>
-
                     <label for="employeePosition">Position</label>
                     <select id="employeePosition" required>
                         <option value="">Choose position</option>
@@ -43,17 +48,19 @@
                         <option value="Server">Server</option>
                         <option value="Dishwasher">Dishwasher</option>
                     </select>
-
                     <div class="button-row">
                         <button id="clockInBtn" type="button">Clock In</button>
                         <button id="clockOutBtn" type="button">Clock Out</button>
                     </div>
                 </form>
                 <p id="employeeStatus">Status: Not clocked in</p>
+                <div id="reminder" style="display: none; color: red; margin-top: 10px;">
+                    Reminder: You are clocked in. Don't forget to clock out!
+                </div>
             </section>
         </main>
     </div>
-
+    <!-- Footer -->
     <footer>
         <img src="Assets/logo.png" alt="Footer Image" class="footer-image">
         <ul class="footerul">
@@ -62,7 +69,7 @@
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </footer>
-
+    <!-- Add type="module" to the script -->
     <script type="module" src="employee.js"></script>
 </body>
 </html>

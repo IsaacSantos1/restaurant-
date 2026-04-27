@@ -1,56 +1,41 @@
 import { db } from "./firebase-config.js";
-
-import {
-  collection,
-  query,
-  orderBy,
-  onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const employeeHoursList = document.getElementById("employeeHoursList");
 
 const q = query(
-  collection(db, "employeeHours"),
-  orderBy("clockIn", "desc")
+    collection(db, "employeeHours"),
+    orderBy("clockIn", "desc")
 );
 
 onSnapshot(q, (snapshot) => {
-  employeeHoursList.innerHTML = "";
+    employeeHoursList.innerHTML = "";
 
-  if (snapshot.empty) {
-    employeeHoursList.innerHTML = `<p class="empty-message">No employee hours yet.</p>`;
-    return;
-  }
+    if (snapshot.empty) {
+        employeeHoursList.innerHTML = `<p class="empty-message">No employee hours yet.</p>`;
+        return;
+    }
 
-  snapshot.forEach((doc) => {
-    const data = doc.data();
+    snapshot.forEach((doc) => {
+        const data = doc.data();
 
-    const clockIn = data.clockIn
-      ? data.clockIn.toDate().toLocaleString()
-      : "Loading...";
+        const clockIn = data.clockIn ? data.clockIn.toDate().toLocaleString() : "Loading...";
+        const clockOut = data.clockOut ? data.clockOut.toDate().toLocaleString() : "Still clocked in";
+        const totalHours = data.totalHours ? `${data.totalHours} hours` : "In progress";
+        const earnings = data.earnings ? `$${data.earnings}` : "In progress";
 
-    const clockOut = data.clockOut
-      ? data.clockOut.toDate().toLocaleString()
-      : "Still clocked in";
+        const employeeItem = document.createElement("div");
+        employeeItem.classList.add("employee-hour-item");
 
-    const totalHours =
-      data.totalHours !== null && data.totalHours !== undefined
-        ? `${data.totalHours} hours`
-        : "In progress";
+        employeeItem.innerHTML = `
+            <p><strong>Name:</strong> ${data.name}</p>
+            <p><strong>Position:</strong> ${data.position}</p>
+            <p><strong>Clock In:</strong> ${clockIn}</p>
+            <p><strong>Clock Out:</strong> ${clockOut}</p>
+            <p><strong>Total Hours:</strong> ${totalHours}</p>
+            <p><strong>Earnings:</strong> ${earnings}</p>
+        `;
 
-    const employeeItem = document.createElement("div");
-    employeeItem.classList.add("employee-hour-item");
-
-    employeeItem.innerHTML = `
-      <p><span>Name:</span> ${data.name}</p>
-      <p><span>Position:</span> ${data.position}</p>
-      <p><span>Clock In:</span> ${clockIn}</p>
-      <p><span>Clock Out:</span> ${clockOut}</p>
-      <p><span>Total Hours:</span> ${totalHours}</p>
-      <p><span>Status:</span> ${data.status}</p>
-    `;
-
-    employeeHoursList.appendChild(employeeItem);
-  });
+        employeeHoursList.appendChild(employeeItem);
+    });
 });
-

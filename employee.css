@@ -1,216 +1,147 @@
 :root {
-    --bg: #dd8c4a;
-    --panel: #3f7656;
-    --panel-dark: #315c44;
-    --text-light: #f7f1e8;
-    --text-dark: #1f1f1f;
-    --danger: #9b2626;
-    --gold: #f2b631;
-    --gold-hover: #e2a51b;
-    --light-btn: #f4efe8;
-    --light-btn-hover: #ddd2c0;
-    --sidebar: #8f2d21;
-    --sidebar-hover: #a53628;
-    --sidebar-active: #712116;
-  }
+  --bg: #E0894C;
+  --sidebar: #8f2d21;
+  --sidebar-hover: #a53628;
+  --sidebar-active: #712116;
+  --text-light: #f7f1e8;
+  --text-dark: #1f1f1f;
+  --button: #3C6A50;
+  --button-hover: #2a4d37;
+  --danger: #9b2626;
+}
 
 /* General Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-dark);
+}
+
 .layout {
-    display: flex;
-    min-height: 100vh;
-    max-width: 1200px;
-    margin: 0 auto; /* Center the entire layout horizontally */
-    gap: 20px;
+  display: flex;
+  min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 150px;
-    background: var(--sidebar);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 22px;
+  width: 200px;
+  background: var(--sidebar);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    width: 100%;
-    padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
 .sidebar-nav a {
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    padding: 4px 6px;
-    width: 100%;
-    transition: background 0.18s ease;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 .sidebar-nav a:hover {
-    background: var(--sidebar-hover);
-    border-radius: 6px;
+  background: var(--sidebar-hover);
 }
 
 .sidebar-nav a.active {
-    background: var(--sidebar-active);
-    border-radius: 6px;
+  background: var(--sidebar-active);
 }
 
 /* Main Content */
 .management-main {
-    flex: 1;
-    background-color: #E0894C;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    text-align: center;
+  flex: 1;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .management-main h1 {
-    color: #3C6A50;
-    margin-bottom: 20px;
+  text-align: center;
+  color: var(--button);
+  margin-bottom: 20px;
 }
 
 .management-card {
-    background-color: #356f4c;
-    color: white;
-    width: 100%;
-    max-width: 750px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--button);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .management-card h2 {
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Employee Hours List */
-.hours-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+.management-card label {
+  margin-bottom: 5px;
+  display: block;
 }
 
-.employee-hour-item {
-    background-color: #2b5c3f;
-    padding: 18px;
-    border-radius: 8px;
-    text-align: left;
-    border-left: 6px solid white;
+.management-card input,
+.management-card select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.employee-hour-item p {
-    margin: 6px 0;
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button-row button {
+  flex: 1;
+  padding: 10px;
+  background-color: var(--button);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button-row button:hover {
+  background-color: var(--button-hover);
+}
+
+#employeeStatus {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* Footer */
 footer {
-    background-color: #A40F06;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    margin-top: 20px;
+  background-color: var(--sidebar);
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 .footerul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .footerul li a {
-    color: white;
-    text-decoration: none;
-}
-
-
-.layout {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .sidebar {
-    width: 150px;
-    background: var(--sidebar);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 22px;
-  }
-  
-  .sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    width: 100%;
-    padding: 0 10px;
-  }
-  
-  .sidebar-nav a {
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    padding: 4px 6px;
-    width: 100%;
-    transition: background 0.18s ease;
-  }
-  
-  .sidebar-nav a:hover {
-    background: var(--sidebar-hover);
-    border-radius: 6px;
-  }
-  
-  .sidebar-nav a.active {
-    background: var(--sidebar-active);
-    border-radius: 6px;
-  }
-
-  
-  @media (max-width: 900px) {
-    .available-items {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .layout {
-      flex-direction: column;
-    }
-  
-    .sidebar {
-      width: 100%;
-      padding: 16px 10px;
-    }
-  
-    .sidebar-nav {
-      gap: 10px;
-    }
-  
-    .inventory-page {
-      padding: 20px 14px 40px;
-    }
-  
-
-  }
-
-  .footerul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    float: right;
-    gap: 20px;
+  color: white;
+  text-decoration: none;
 }

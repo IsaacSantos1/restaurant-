@@ -1,103 +1,86 @@
+import { collection, addDoc, query, where, orderBy, limit, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { db } from "./firebase-config.js";
-
-import {
-  collection,
-  addDoc,
-  query,
-  where,
-  orderBy,
-  limit,
-  getDocs,
-  updateDoc,
-  doc,
-  serverTimestamp,
-  Timestamp
-} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const employeeName = document.getElementById("employeeName");
 const employeePosition = document.getElementById("employeePosition");
 const clockInBtn = document.getElementById("clockInBtn");
 const clockOutBtn = document.getElementById("clockOutBtn");
 const employeeStatus = document.getElementById("employeeStatus");
+const reminder = document.getElementById("reminder");
 
 // Clock In Functionality
 clockInBtn.addEventListener("click", async () => {
-  const name = employeeName.value.trim();
-  const position = employeePosition.value;
+    const name = employeeName.value.trim();
+    const position = employeePosition.value;
 
-  if (!name || !position) {
-    employeeStatus.textContent = "Enter your name and choose a position.";
-    return;
-  }
+    if (!name || !position) {
+        employeeStatus.textContent = "Please enter your name and position.";
+        return;
+    }
 
-  try {
-    // Add clock-in data to Firestore
-    await addDoc(collection(db, "employeeHours"), {
-      name: name,
-      position: position,
-      clockIn: serverTimestamp(),
-      clockOut: null,
-      totalHours: null,
-      status: "Clocked In"
-    });
-
-    employeeStatus.textContent = `${name} clocked in as ${position}.`;
-    employeeName.value = "";
-    employeePosition.value = "";
-  } catch (error) {
-    employeeStatus.textContent = "Clock in failed. Check Firebase.";
-    console.error("Error during clock in:", error);
-  }
+    try {
+        await addDoc(collection(db, "employeeHours"), {
+            name,
+            position,
+            clockIn: new Date(),
+            clockOut: null,
+            status: "Clocked In",
+        });
+        employeeStatus.textContent = `${name} clocked in as ${position}.`;
+        reminder.style.display = "block";
+        employeeName.value = "";
+        employeePosition.value = "";
+    } catch (error) {
+        employeeStatus.textContent = "Clock in failed. Check Firebase.";
+        console.error("Error during clock in:", error);
+    }
 });
 
 // Clock Out Functionality
 clockOutBtn.addEventListener("click", async () => {
-  const name = employeeName.value.trim();
+    const name = employeeName.value.trim();
 
-  if (!name) {
-    employeeStatus.textContent = "Enter your name to clock out.";
-    return;
-  }
-
-  try {
-    const q = query(
-      collection(db, "employeeHours"),
-      where("name", "==", name),
-      where("clockOut", "==", null),
-      orderBy("clockIn", "desc"),
-      limit(1)
-    );
-
-    const snapshot = await getDocs(q);
-
-    if (snapshot.empty) {
-      employeeStatus.textContent = "No active clock in found.";
-      return;
+    if (!name) {
+        employeeStatus.textContent = "Enter your name to clock out.";
+        return;
     }
 
-    const record = snapshot.docs[0];
-    const data = record.data();
+    try {
+        const q = query(
+            collection(db, "employeeHours"),
+            where("name", "==", name),
+            where("clockOut", "==", null),
+            orderBy("clockIn", "desc"),
+            limit(1)
+        );
 
-    const clockInTime = data.clockIn.toDate();
-    const clockOutTime = new Date();
+        const snapshot = await getDocs(q);
 
-    const totalHours = (
-      (clockOutTime.getTime() - clockInTime.getTime()) /
-      1000 /
-      60 /
-      60
-    ).toFixed(2);
+        if (snapshot.empty) {
+            employeeStatus.textContent = "No active clock in found.";
+            return;
+        }
 
-    await updateDoc(doc(db, "employeeHours", record.id), {
-      clockOut: Timestamp.fromDate(clockOutTime),
-      totalHours: Number(totalHours),
-      status: "Clocked Out"
-    });
+        const record = snapshot.docs[0];
+        const recordRef = doc(db, "employeeHours", record.id);
 
-    employeeStatus.textContent = `${name} clocked out. Total hours: ${totalHours}`;
-    employeeName.value = "";
-  } catch (error) {
-    employeeStatus.textContent = "Clock out failed. Check Firebase index.";
-    console.error("Error during clock out:", error);
-  }
+        const clockInTime = record.data().clockIn.toDate();
+        const clockOutTime = new Date();
+        const totalHours = ((clockOutTime - clockInTime) / (1000 * 60 * 60)).toFixed(2);
+        const earnings = (totalHours * 15).toFixed(2);
+
+        await updateDoc(recordRef, {
+            clockOut: clockOutTime,
+            totalHours,
+            earnings,
+            status: "Clocked Out",
+        });
+
+        employeeStatus.textContent = `${name} successfully clocked out.`;
+        reminder.style.display = "none";
+        employeeName.value = "";
+    } catch (error) {
+        employeeStatus.textContent = "Clock out failed. Check Firebase.";
+        console.error("Error during clock out:", error);
+    }
 });
