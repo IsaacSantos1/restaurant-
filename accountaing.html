@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounting</title>
+    <link rel="stylesheet" href="accounting.css">
+    <script type="module" src="accounting.js"></script> <!-- Add type="module" -->
+</head>
+<body>
+    <nav>
+        <a href="home.html">
+            <img src="Assets/logo.png" alt="Parrilla Mexicana Logo">
+        </a>
+        <ul class="navul">
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="order.html">Order Now</a></li>
+            <li><a href="employee.html">Employee Portal</a></li>
+        </ul>
+    </nav>
+
+    <main class="accounting-container">
+        <h1>Accounting Dashboard</h1>
+        <section class="profit-section">
+            <h2>Total Profit</h2>
+            <p id="totalProfit">$0.00</p>
+        </section>
+
+        <section class="purchases-section">
+            <h2>Purchase History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Total Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="purchaseHistory">
+                    <tr>
+                        <td colspan="4">No purchases yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <img src="Assets/logo.png" alt="Footer Image" class="footer-image">
+        <ul class="footerul">
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

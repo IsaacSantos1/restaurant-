@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E0894C;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #3C6A50;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.accounting-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #3C6A50;
+}
+
+.profit-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profit-section p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #A40F06;
+}
+
+.purchases-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.purchases-section th, .purchases-section td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.purchases-section th {
+    background-color: #3C6A50;
+    color: white;
+}
+
+.purchases-section tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.purchases-section tr:hover {
+    background-color: #f1f1f1;
+}
