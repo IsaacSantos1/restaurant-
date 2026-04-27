@@ -54,3 +54,4 @@ async function handleCheckoutForm(event) {
 
 // Attach the event listener to the form
 document.querySelector('.checkout-form').addEventListener('submit', handleCheckoutForm);
+
