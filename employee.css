@@ -23,25 +23,17 @@ body {
   min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   width: 200px;
-  background: var(--sidebar);
+  background: #8C3225; /* Updated to a red tone */
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
 .sidebar-nav a {
-  color: rgb(255, 255, 255);
+  color: white;
   text-decoration: none;
   text-align: center;
   padding: 10px;
@@ -50,11 +42,11 @@ body {
 }
 
 .sidebar-nav a:hover {
-  background: var(--sidebar-hover);
+  background: #A40F06; /* Updated hover color */
 }
 
 .sidebar-nav a.active {
-  background: var(--sidebar-active);
+  background: #712116; /* Updated active color */
 }
 
 /* Main Content */

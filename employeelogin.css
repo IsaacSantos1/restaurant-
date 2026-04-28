@@ -1,71 +1,60 @@
-body{
+body {
     background-color: #E0894C;
-    color:white;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-nav{
+
+nav {
     background-color: #3C6A50;
-    color:white;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
-.pages-nav{
-    display:flex;
-    flex-direction:row;
-    gap:20px;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-.login-form{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+
+form {
+    background-color: #8C3225;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
 }
-form{
-    background-color:#8C3225;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    padding:30px;
-    width:70%;
-    border-radius:15px;
+
+form h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
-input{
-    width:70%;
-    text-align:center;
-    border-radius:15px;
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-button{
-    margin-top:30px;
-    background-color:#3C6A50;
-    color:white;
-    border-radius:15px;
-    cursor:pointer;
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3C6A50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
-.signup-txt{
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    gap:5px;
-}
-footer{
-    margin-top:50px;
-    background-color:#A40F06;
-    color:white;
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-}
-#links{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-#links li{
-    list-style: none;
-    text-align:center;
-}
-li a{
-    color:white;
-    text-decoration: none;
+
+form button:hover {
+    background-color: #2a4d37;
 }

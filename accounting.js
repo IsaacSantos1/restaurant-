@@ -53,3 +53,26 @@ onSnapshot(q, (snapshot) => {
     calculateTotalProfit(orders);
     displayPurchaseHistory(orders);
 });
+
+function calculateIngredientCosts(orders) {
+    const ingredientCosts = {};
+    orders.forEach((order) => {
+        order.cart.forEach((item) => {
+            if (!ingredientCosts[item.name]) {
+                ingredientCosts[item.name] = 0;
+            }
+            ingredientCosts[item.name] += item.quantity * item.price;
+        });
+    });
+    return ingredientCosts;
+}
+
+function renderIngredientCosts(ingredientCosts) {
+    const accountingContainer = document.getElementById("accounting-container");
+    accountingContainer.innerHTML = "";
+    Object.entries(ingredientCosts).forEach(([ingredient, cost]) => {
+        const costRow = document.createElement("div");
+        costRow.innerHTML = `<p>${ingredient}: $${cost.toFixed(2)}</p>`;
+        accountingContainer.appendChild(costRow);
+    });
+}

@@ -28,11 +28,9 @@ clockInBtn.addEventListener("click", async () => {
         });
         employeeStatus.textContent = `${name} clocked in as ${position}.`;
         reminder.style.display = "block";
-        employeeName.value = "";
-        employeePosition.value = "";
     } catch (error) {
-        employeeStatus.textContent = "Clock in failed. Check Firebase.";
         console.error("Error during clock in:", error);
+        employeeStatus.textContent = "Clock in failed. Check Firebase.";
     }
 });
 
