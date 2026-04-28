@@ -1,11 +1,12 @@
-import { db } from './firebase-config.js';
-import { collection, addDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { db } from "./firebase-config.js";
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const ordersCollection = collection(db, "orders");
-const inventoryCollection = collection(db, "inventory");
 
+// Function to handle form submission
 async function handleCheckoutForm(event) {
     event.preventDefault();
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const cart = JSON.parse(localStorage.getItem("cart"));
@@ -15,23 +16,25 @@ async function handleCheckoutForm(event) {
         return;
     }
 
+    // Calculate total amount
+    let totalAmount = 0;
+    Object.values(cart).forEach((item) => {
+        totalAmount += item.price * item.quantity;
+    });
+
     try {
+        // Save the order to Firestore
         const orderData = {
             customerName: name,
             email: email,
             cart: cart,
-            timestamp: new Date(),
+            totalAmount: totalAmount,
+            timestamp: serverTimestamp() // Add the current timestamp
         };
+
         await addDoc(ordersCollection, orderData);
 
-        // Update inventory
-        for (const item of cart) {
-            const inventoryRef = doc(db, "inventory", item.id);
-            await updateDoc(inventoryRef, {
-                quantity: item.quantity - cart[item.name].quantity,
-            });
-        }
-
+        console.log("Order saved:", orderData); // Debugging log
         alert("Order placed successfully!");
         localStorage.removeItem("cart");
         window.location.href = "order.html";
@@ -40,3 +43,5 @@ async function handleCheckoutForm(event) {
         alert("Failed to place order. Please try again.");
     }
 }
+
+document.querySelector(".checkout-form").addEventListener("submit", handleCheckoutForm);
